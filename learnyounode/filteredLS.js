@@ -6,8 +6,9 @@ var endsWith = function(text, suffix) {
 
 fs.readdir(process.argv[2], function(err, list) {
   if (err) throw err;
-  var filtered = list.filter(function(file){
-    return endsWith(file, '.' + process.argv[3]);
+  list.filter(function(file){
+    if (endsWith(file, '.' + process.argv[3])) {
+      console.log(file);
+	}
   });
-  console.log(filtered);
 });
